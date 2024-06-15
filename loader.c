@@ -3,13 +3,17 @@
 #include "models.h"
 #include "globals.h"
 
+/**
+ * @brief Function to load a texture from a file
+ * @param file
+ * @param texture1
+ * @return 1 if the texture was loaded correctly, -1 otherwise
+ */
 int load_ppm(char *file, texture *texture1)
 {
-    //int load_ppm(char *file, unsigned char **bufferptr, int *dimxptr, int *dimyptr)
     char line[40];
     int luz,zbkia;
     FILE *obj_file;
-    int fd;
 
     if ((obj_file = fopen(file, "r")) == NULL)
     {
@@ -33,7 +37,7 @@ int load_ppm(char *file, texture *texture1)
             return(-1);
         }
     }
-    /* fitxategi neurria irakurtzera */
+
     luz =fscanf(obj_file, "%[^\n]\n", line);
     if (luz>0)
     {
@@ -85,6 +89,13 @@ int load_ppm(char *file, texture *texture1)
     }
 }
 
+/**
+ * @brief Function to load an object to the scene from a file
+ * @param file
+ * @param scene1
+ * @param texture2
+ * @return 1 if the object was loaded correctly, -1 otherwise
+ */
 int load_object(char *file, scene *scene1, texture *texture2)
 {
     FILE *obj_file;
@@ -92,7 +103,6 @@ int load_object(char *file, scene *scene1, texture *texture2)
 
     if ((obj_file = fopen(file, "r")) == NULL)
     {
-        //*hkopptr= 0;
         printf("Error opening file %s\n",file);
         return(-1);
     }
@@ -145,16 +155,6 @@ int load_object(char *file, scene *scene1, texture *texture2)
     scene1->objects[scene1->num_objects - 1]->num_triangles = num_triangles;
     scene1->objects[scene1->num_objects - 1]->triangles = triangles;
     scene1->objects[scene1->num_objects - 1]->index = 0;
-
-    /**
-    // Allocate memory for the texture
-    scene1->objects[scene1->num_objects - 1]->texture = (texture *)malloc(sizeof(texture));
-
-    if (scene1->objects[scene1->num_objects - 1]->texture == NULL) {
-        printf("Error allocating memory for texture\n");
-        return(-1);
-    }
-     */
 
     // Set the texture
     scene1->objects[scene1->num_objects - 1]->texture = texture2;

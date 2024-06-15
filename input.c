@@ -9,8 +9,12 @@
 #include "globals.h"
 #include "loader.h"
 
-
-// This function will be called whenever the user pushes one key
+/**
+ * @brief Function to handle keyboard input. It will be called whenever the user pushes a key.
+ * @param key
+ * @param x
+ * @param y
+ */
 void keyboard (unsigned char key, int x, int y)
 {
     // The screen must be drawn to show the new triangle

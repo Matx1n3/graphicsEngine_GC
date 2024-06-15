@@ -19,8 +19,7 @@ int main(int argc, char *argv[]) {
 
     glutDisplayFunc( draw);
     glutKeyboardFunc( keyboard);
-    /* we put the information of the texture in the buffer pointed by bufferra. The dimensions of the texture are loaded into dimx and dimy */
-    //texture texture1;
+
     retval = load_ppm("testura.ppm", &texture1);
 
     if (retval !=1)
@@ -31,7 +30,7 @@ int main(int argc, char *argv[]) {
 
     glClearColor( 0.0f, 0.0f, 0.7f, 1.0f );
     glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-    glEnable(GL_DEPTH_TEST); // activar el test de profundidad (Z-buffer)
+    glEnable(GL_DEPTH_TEST);
 
     if (argc>1) load_object(argv[1], &scene1, &texture1);
     else load_object("objects/adibideak.txt", &scene1, &texture1);

@@ -4,6 +4,13 @@
 
 #include "math.h"
 
+/**
+ * @brief Orders the points by their y value. If two points have the same y value,
+ * the one with the smallest x value is first.
+ * @param p1
+ * @param p2
+ * @param p3
+ */
 void order_points(point *p1, point *p2, point *p3)
 {
     point aux;
@@ -46,6 +53,12 @@ void order_points(point *p1, point *p2, point *p3)
     }
 }
 
+/**
+ * @brief Stores the result of matrix * point1 in result
+ * @param matrix
+ * @param point1
+ * @param result
+ */
 void matrix_by_point(float matrix[4][4], point point1, point result)
 {
     result.x = matrix[0][0] * point1.x + matrix[0][1] * point1.y + matrix[0][2] * point1.z + matrix[0][3] * point1.u;
