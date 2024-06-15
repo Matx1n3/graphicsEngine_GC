@@ -1,0 +1,23 @@
+# ninja log v5
+0	21	1716553552589626086	CMakeFiles/proyectoGC.dir/globals.c.o	32fc913c37f17169
+0	22	1716553552593626131	CMakeFiles/proyectoGC.dir/loader.c.o	2a488d63cb8d0d63
+0	39	1716553552609626308	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+0	39	1716553552613626354	CMakeFiles/proyectoGC.dir/input.c.o	44ddd26a92908ecb
+0	45	1716553552617626398	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+1	41	1716553803800479637	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+1	41	1716553803804479684	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+1	41	1716553803800479637	CMakeFiles/proyectoGC.dir/input.c.o	44ddd26a92908ecb
+1	42	1716558077837371210	CMakeFiles/proyectoGC.dir/input.c.o	44ddd26a92908ecb
+1	42	1716558077841371258	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+1	42	1716558077837371210	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+3	25	1716563293322933687	CMakeFiles/proyectoGC.dir/loader.c.o	2a488d63cb8d0d63
+3	63	1716563293362933885	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+2	65	1716563293362933885	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+3	19	1716632953783540016	CMakeFiles/proyectoGC.dir/globals.c.o	32fc913c37f17169
+3	30	1716632953795540172	CMakeFiles/proyectoGC.dir/loader.c.o	2a488d63cb8d0d63
+3	51	1716632953815540432	CMakeFiles/proyectoGC.dir/input.c.o	44ddd26a92908ecb
+3	71	1716632953835540691	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+3	73	1716632953839540743	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+3	43	1718096440492618423	CMakeFiles/proyectoGC.dir/main.c.o	d6de9aea44c232ba
+3	43	1718096440492618423	CMakeFiles/proyectoGC.dir/display.c.o	d731fe3dd77b692d
+3	44	1718096440492618423	CMakeFiles/proyectoGC.dir/input.c.o	44ddd26a92908ecb
