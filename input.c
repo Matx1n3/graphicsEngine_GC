@@ -8,6 +8,8 @@
 #include "input.h"
 #include "globals.h"
 #include "loader.h"
+#include "transformations.h"
+#include "math.h"
 
 /**
  * @brief Function to handle keyboard input. It will be called whenever the user pushes a key.
@@ -22,7 +24,6 @@ void keyboard (unsigned char key, int x, int y)
         case 27: //esc
             printf("Exiting...\n");
             exit(0);
-            break;
         case 9: //tab
             scene1.index = (scene1.index + 1) % scene1.num_objects;
             scene1.objects[scene1.index]->index = 0;
@@ -48,6 +49,42 @@ void keyboard (unsigned char key, int x, int y)
         case 'd':
             if (draw_all_objs) draw_all_objs = 0;
             else draw_all_objs = 1;
+            break;
+        case 't':
+            actual_transformation_type = TRANSLATE;
+            printf("Transformation mode: TRANSLATE\n");
+            break;
+        case 'r':
+            actual_transformation_type = ROTATE;
+            printf("Transformation mode: ROTATE\n");
+            break;
+        case 'g':
+            if (actual_reference_system == LOCAL) {
+                actual_reference_system = GLOBAL;
+                printf("Reference system: GLOBAL\n");
+            }
+            else {
+                actual_reference_system = LOCAL;
+                printf("Reference system: LOCAL\n");
+            }
+            break;
+        case 'x':
+            transform(actual_transformation_type, actual_reference_system, 10, 0, 0, 'x', .1f);
+            break;
+        case 'X':
+            transform(actual_transformation_type, actual_reference_system, -10, 0, 0, 'x', -.1f);
+            break;
+        case 'y':
+            transform(actual_transformation_type, actual_reference_system, 0, 10, 0, 'y', .1f);
+            break;
+        case 'Y':
+            transform(actual_transformation_type, actual_reference_system, 0, -10, 0, 'y', -.1f);
+            break;
+        case 'z':
+            transform(actual_transformation_type, actual_reference_system, 0, 0, 10, 'z', .1f);
+            break;
+        case 'Z':
+            transform(actual_transformation_type, actual_reference_system, 0, 0, -10, 'z', -.1f);
             break;
         default:
             break;

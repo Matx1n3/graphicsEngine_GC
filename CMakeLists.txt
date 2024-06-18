@@ -19,7 +19,6 @@ add_executable(proyectoGC
         loader.c
         models.h
         loader.h
-        defines.h
         display.h
         display.c
         input.c
@@ -28,7 +27,9 @@ add_executable(proyectoGC
         globals.h
         math.c
         math.h
-        )
+        transformations.c
+        transformations.h
+)
 
 # Enlazar el ejecutable con las bibliotecas GLUT y OpenGL
 target_link_libraries(proyectoGC ${GLUT_LIBRARY} ${OPENGL_LIBRARIES})

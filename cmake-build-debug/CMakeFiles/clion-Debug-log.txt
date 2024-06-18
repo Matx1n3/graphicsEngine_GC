@@ -1,13 +1,4 @@
 /home/matxin/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/matxin/.local/share/JetBrains/Toolbox/apps/clion/bin/ninja/linux/x64/ninja -G Ninja -S /home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC -B /home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC/cmake-build-debug
 -- Configuring done (0.0s)
-CMake Error at CMakeLists.txt:17 (add_executable):
-  Cannot find source file:
-
-    defines.h
-
-
-CMake Error at CMakeLists.txt:17 (add_executable):
-  No SOURCES given to target: proyectoGC
-
-
-CMake Generate step failed.  Build files cannot be regenerated correctly.
+-- Generating done (0.0s)
+-- Build files have been written to: /home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC/cmake-build-debug

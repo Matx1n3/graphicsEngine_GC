@@ -30,4 +30,11 @@ extern struct scene scene1;
 /** Texture to be used */
 extern struct texture texture1;
 
+/** Transformation to be applied */
+enum transformation_types {TRANSLATE, ROTATE, SCALE};
+extern enum transformation_types actual_transformation_type;
+
+enum reference_system_types {LOCAL, GLOBAL};
+extern enum reference_system_types actual_reference_system;
+
 #endif //PROYECTOGC_GLOBALS_H

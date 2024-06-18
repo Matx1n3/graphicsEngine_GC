@@ -23,3 +23,7 @@ struct texture texture1 = {
         .dimy = 0
 };
 
+enum transformation_types actual_transformation_type = TRANSLATE;
+
+enum reference_system_types actual_reference_system = LOCAL;
+

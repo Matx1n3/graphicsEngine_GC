@@ -2,6 +2,7 @@
 // Created by matxin on 12/06/24.
 //
 
+#include <stdio.h>
 #include "math.h"
 
 /**
@@ -59,11 +60,42 @@ void order_points(point *p1, point *p2, point *p3)
  * @param point1
  * @param result
  */
-void matrix_by_point(float matrix[4][4], point point1, point result)
+void matrix_by_point(float matrix[4][4], point point1, point *result)
 {
-    result.x = matrix[0][0] * point1.x + matrix[0][1] * point1.y + matrix[0][2] * point1.z + matrix[0][3] * point1.u;
-    result.y = matrix[1][0] * point1.x + matrix[1][1] * point1.y + matrix[1][2] * point1.z + matrix[1][3] * point1.u;
-    result.z = matrix[2][0] * point1.x + matrix[2][1] * point1.y + matrix[2][2] * point1.z + matrix[2][3] * point1.u;
-    result.u = point1.u;
-    result.v = point1.v;
+    result->x = matrix[0][0] * point1.x + matrix[0][1] * point1.y + matrix[0][2] * point1.z + matrix[0][3];
+    result->y = matrix[1][0] * point1.x + matrix[1][1] * point1.y + matrix[1][2] * point1.z + matrix[1][3];
+    result->z = matrix[2][0] * point1.x + matrix[2][1] * point1.y + matrix[2][2] * point1.z + matrix[2][3];
+    result->u = point1.u;
+    result->v = point1.v;
+}
+
+/**
+ * @brief Stores the result of matrix1 * matrix2 in result
+ * @param matrix1
+ * @param matrix2
+ * @param result
+ */
+void matrix_by_matrix(float matrix1[4][4], float matrix2[4][4], float result[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            result[i][j] = 0;
+            for (int k = 0; k < 4; k++) {
+                result[i][j] += matrix1[i][k] * matrix2[k][j];
+            }
+        }
+    }
+}
+
+/**
+ * @brief Prints the matrix
+ * @param matrix
+ */
+void print_matrix(float matrix[4][4]) {
+    for (int i = 0; i < 4; i++) {
+        printf("[");
+        for (int j = 0; j < 4; j++) {
+            printf("%f ", matrix[i][j]);
+        }
+        printf("]\n");
+    }
 }

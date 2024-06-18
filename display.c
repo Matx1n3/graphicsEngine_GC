@@ -16,11 +16,11 @@
  * @param v
  * @return pointer to the color rgb
  */
-unsigned char* color_texture(texture *texture1, float u, float v)
+unsigned char* color_texture(texture *texture2, float u, float v)
 {
-    int x = (int) (u * (float) texture1->dimx);
-    int y = (int) (v * (float) texture1->dimy);
-    return &texture1->buffer[(y * texture1->dimx + x) * 3];
+    int x = (int) (u * (float) texture2->dimx);
+    int y = (int) (v * (float) texture2->dimy);
+    return &texture2->buffer[(y * texture2->dimx + x) * 3];
 
 }
 
@@ -38,7 +38,6 @@ unsigned char* color_texture(texture *texture1, float u, float v)
  */
 void draw_line_z(float y, float x1, float z1, float u1, float v1, float x2, float z2, float u2, float v2)
 {
-
     //Calculate increase in u and v for each iteration
     float denominator = x2 - x1;
     if (denominator < EPSILON) denominator = 1;
@@ -53,8 +52,6 @@ void draw_line_z(float y, float x1, float z1, float u1, float v1, float x2, floa
         glColor3ub(colorv[0], colorv[1], colorv[2]);
         glVertex3f(x, y, 0);
     }
-
-    glEnd();
 }
 
 /**
@@ -70,10 +67,11 @@ void draw_triangle(triangle *triangle1, float trans_matrix[4][4])
     point p2 = triangle1->p2;
     point p3 = triangle1->p3;
 
-    // Get the points of the triangle that must be drawn
-    matrix_by_point(trans_matrix, triangle1->p1, p1);
-    matrix_by_point(trans_matrix, triangle1->p2, p2);
-    matrix_by_point(trans_matrix, triangle1->p3, p3);
+
+    // multiply the points by the transformation matrix
+    matrix_by_point(trans_matrix, triangle1->p1, &p1);
+    matrix_by_point(trans_matrix, triangle1->p2, &p2);
+    matrix_by_point(trans_matrix, triangle1->p3, &p3);
 
     // If triangle doesn't have to be filled, draw just the lines
     if (!fill_triangles)
@@ -112,6 +110,8 @@ void draw_triangle(triangle *triangle1, float trans_matrix[4][4])
     float dz_p2p3 = (p3.z - p2.z) / (p3.y - p2.y);
     float du_p2p3 = (p3.u - p2.u) / (p3.y - p2.y);
     float dv_p2p3 = (p3.v - p2.v) / (p3.y - p2.y);
+
+    glBegin(GL_POINTS);
 
     // Draw the upper part of the triangle
     // if p1.y == p2.y, it will just skip this
@@ -159,7 +159,6 @@ void draw_triangle(triangle *triangle1, float trans_matrix[4][4])
             p6.v -= dv_p2p3;
         }
     }
-
     glEnd();
 }
 
