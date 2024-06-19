@@ -2,10 +2,10 @@
 // Created by matxin on 17/06/24.
 //
 
-#include "transformations.h"
+#include "../include/transformations.h"
 #include <math.h>
-#include "math.h"
-#include "globals.h"
+#include "../include/math.h"
+#include "../include/globals.h"
 
 /**
  * @brief Translates the matrix by x, y and z

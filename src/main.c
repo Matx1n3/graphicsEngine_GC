@@ -1,10 +1,9 @@
 #include <stdio.h>
 #include <GL/glut.h>
-#include "globals.h"
-#include "loader.h"
-#include "display.h"
-#include "input.h"
-#include "models.h"
+#include "../include/globals.h"
+#include "../include/loader.h"
+#include "../include/display.h"
+#include "../include/input.h"
 
 
 int main(int argc, char *argv[]) {
@@ -20,7 +19,7 @@ int main(int argc, char *argv[]) {
     glutDisplayFunc( draw);
     glutKeyboardFunc( keyboard);
 
-    retval = load_ppm("testura.ppm", &texture1);
+    retval = load_ppm("resources/textures/testura.ppm", &texture1);
 
     if (retval !=1)
     {
@@ -33,7 +32,7 @@ int main(int argc, char *argv[]) {
     glEnable(GL_DEPTH_TEST);
 
     if (argc>1) load_object(argv[1], &scene1, &texture1);
-    else load_object("objects/adibideak.txt", &scene1, &texture1);
+    else load_object("resources/objects/adibideak.txt", &scene1, &texture1);
 
     glClear( GL_DEPTH_BUFFER_BIT|GL_COLOR_BUFFER_BIT );
     glutMainLoop();

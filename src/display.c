@@ -2,11 +2,11 @@
 // Created by matxin on 22/05/24.
 //
 
-#include "display.h"
+#include "../include/display.h"
 #include <GL/glut.h>
-#include "globals.h"
-#include "models.h"
-#include "math.h"
+#include "../include/globals.h"
+#include "../include/models.h"
+#include "../include/math.h"
 #include <stdio.h>
 
 /**

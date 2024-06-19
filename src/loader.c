@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "models.h"
-#include "globals.h"
+#include "../include/models.h"
+#include "../include/globals.h"
 
 /**
  * @brief Function to load a texture from a file

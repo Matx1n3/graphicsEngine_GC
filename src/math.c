@@ -3,7 +3,7 @@
 //
 
 #include <stdio.h>
-#include "math.h"
+#include "../include/math.h"
 
 /**
  * @brief Orders the points by their y value. If two points have the same y value,

@@ -5,11 +5,11 @@
 #include <GL/glut.h>
 #include <stdio.h>
 #include <string.h>
-#include "input.h"
-#include "globals.h"
-#include "loader.h"
-#include "transformations.h"
-#include "math.h"
+#include "../include/input.h"
+#include "../include/globals.h"
+#include "../include/loader.h"
+#include "../include/transformations.h"
+#include "../include/math.h"
 
 /**
  * @brief Function to handle keyboard input. It will be called whenever the user pushes a key.

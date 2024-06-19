@@ -2,7 +2,7 @@
 // Created by matxin on 22/05/24.
 //
 
-#include "globals.h"
+#include "../include/globals.h"
 #include <stddef.h>
 
 int fill_triangles = 0;
