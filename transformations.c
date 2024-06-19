@@ -143,6 +143,51 @@ void rotate_x_global(float matrix[4][4], float angle)
     matrix_by_matrix(rotation_matrix, tmp1_matrix, tmp2_matrix);
     matrix_by_matrix(back_to_position, tmp2_matrix, tmp1_matrix);
 
+    // Copy the values from tmp1_matrix back into matrix
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            matrix[i][j] = tmp1_matrix[i][j];
+        }
+    }
+}
+
+/**
+ * @brief Rotates the matrix by angle in the y axis in the global reference system
+ * @param matrix
+ * @param angle
+ */
+void rotate_y_global(float matrix[4][4], float angle)
+{
+    float cos_angle = (float) cos((double)angle);
+    float sin_angle = (float) sin((double) angle);
+
+    float to_center[4][4] = {
+            {1, 0, 0, -matrix[0][3]},
+            {0, 1, 0, -matrix[1][3]},
+            {0, 0, 1, -matrix[2][3]},
+            {0, 0, 0, 1}
+    };
+
+    float rotation_matrix[4][4] = {
+            {cos_angle, 0, sin_angle, 0},
+            {0, 1, 0, 0},
+            {-sin_angle, 0, cos_angle, 0},
+            {0, 0, 0, 1}
+    };
+
+    float back_to_position[4][4] = {
+            {1, 0, 0, matrix[0][3]},
+            {0, 1, 0, matrix[1][3]},
+            {0, 0, 1, matrix[2][3]},
+            {0, 0, 0, 1}
+    };
+
+    float tmp1_matrix[4][4];
+    float tmp2_matrix[4][4];
+
+    matrix_by_matrix(to_center, matrix, tmp1_matrix);
+    matrix_by_matrix(rotation_matrix, tmp1_matrix, tmp2_matrix);
+    matrix_by_matrix(back_to_position, tmp2_matrix, tmp1_matrix);
 
     // Copy the values from tmp1_matrix back into matrix
     for (int i = 0; i < 4; i++) {
@@ -153,7 +198,54 @@ void rotate_x_global(float matrix[4][4], float angle)
 }
 
 /**
- * @brief Transforms the object according to the transformation type, reference system, x, y, z, axis and angle
+ * @brief Rotates the matrix by angle in the z axis in the global reference system
+ * @param matrix
+ * @param angle
+ */
+void rotate_z_global(float matrix[4][4], float angle)
+{
+    float cos_angle = (float) cos((double)angle);
+    float sin_angle = (float) sin((double) angle);
+
+    float to_center[4][4] = {
+            {1, 0, 0, -matrix[0][3]},
+            {0, 1, 0, -matrix[1][3]},
+            {0, 0, 1, -matrix[2][3]},
+            {0, 0, 0, 1}
+    };
+
+    float rotation_matrix[4][4] = {
+            {cos_angle, -sin_angle, 0, 0},
+            {sin_angle, cos_angle, 0, 0},
+            {0, 0, 1, 0},
+            {0, 0, 0, 1}
+    };
+
+    float back_to_position[4][4] = {
+            {1, 0, 0, matrix[0][3]},
+            {0, 1, 0, matrix[1][3]},
+            {0, 0, 1, matrix[2][3]},
+            {0, 0, 0, 1}
+    };
+
+    float tmp1_matrix[4][4];
+    float tmp2_matrix[4][4];
+
+    matrix_by_matrix(to_center, matrix, tmp1_matrix);
+    matrix_by_matrix(rotation_matrix, tmp1_matrix, tmp2_matrix);
+    matrix_by_matrix(back_to_position, tmp2_matrix, tmp1_matrix);
+
+    // Copy the values from tmp1_matrix back into matrix
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 4; j++) {
+            matrix[i][j] = tmp1_matrix[i][j];
+        }
+    }
+}
+
+/**
+ * @brief Transforms the object according to the transformation type, reference system, x, y, z, axis and angle.
+ * Acts as wrapper for the other transformation functions
  * @param transformation_type
  * @param reference_system
  * @param x
@@ -188,10 +280,10 @@ void transform(enum transformation_types transformation_type, enum reference_sys
                         rotate_x_global(scene1.objects[scene1.index]->trans_matrix, angle);
                         break;
                     case 'y':
-                        //rotate_y_global(scene1.objects[scene1.index]->trans_matrix, angle);
+                        rotate_y_global(scene1.objects[scene1.index]->trans_matrix, angle);
                         break;
                     case 'z':
-                        //rotate_z_global(scene1.objects[scene1.index]->trans_matrix, angle);
+                        rotate_z_global(scene1.objects[scene1.index]->trans_matrix, angle);
                         break;
                     default:
                         break;
