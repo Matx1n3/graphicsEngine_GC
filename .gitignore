@@ -1,5 +1,5 @@
 # Ignore build directories and files
-/cmake-build-debug/
+/cmake-build-debug
 /build/
 /CMakeFiles/
 /CMakeCache.txt
@@ -9,6 +9,7 @@
 /build.ninja
 /.ninja_deps
 /.ninja_log
+/.idea
 
 # Ignore executables
 /bin/your_executable
