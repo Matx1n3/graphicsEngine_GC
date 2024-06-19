@@ -1,3 +1,0 @@
-/home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC/cmake-build-debug/CMakeFiles/proyectoGC.dir
-/home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC/cmake-build-debug/CMakeFiles/rebuild_cache.dir

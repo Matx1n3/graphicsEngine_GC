@@ -1,1 +1,0 @@
-CMakeLists.txt not found in /home/matxin/WorkSpace/Uni/3ero/1cuatri/GC/proyectoGC Select CMakeLists.txt
