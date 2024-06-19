@@ -5,9 +5,7 @@
 #include "../include/display.h"
 #include <GL/glut.h>
 #include "../include/globals.h"
-#include "../include/models.h"
 #include "../include/math.h"
-#include <stdio.h>
 
 /**
  * @brief Returns the color of the texture in the given coordinates
@@ -43,14 +41,15 @@ void draw_line_z(float y, float x1, float z1, float u1, float v1, float x2, floa
     if (denominator < EPSILON) denominator = 1;
     float du = (u2 - u1) / denominator;
     float dv = (v2 - v1) / denominator;
+    float dz = (z2 - z1) / denominator;
 
     float x, z, u, v;
 
-    for (x = x1, u = u1, v = v1; x <= x2; x++, u += du, v += dv)
+    for (x = x1, u = u1, v = v1, z = z1; x <= x2; x++, u += du, v += dv, z += dz)
     {
         unsigned char* colorv = color_texture(scene1.objects[scene1.index]->texture, u, v);
         glColor3ub(colorv[0], colorv[1], colorv[2]);
-        glVertex3f(x, y, 0);
+        glVertex3f(x, y, z);
     }
 }
 
