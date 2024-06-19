@@ -43,7 +43,7 @@ Some configurations can be changed in the 'globals.h' and 'globals.c' files. Ref
 in the files for more information.
 
 ## Structure
-![img.png](img.png)
+![img.png](src/img.png)
 
 ## Conclusion
 Despite being a simple graphics renderer, it serves as a base for more complex projects.
